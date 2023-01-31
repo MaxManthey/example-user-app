@@ -1,12 +1,12 @@
-name: Example Books Backend Build
+name: Example Books DB Build
 
 on:
   push:
     branches:
       - "main"
     paths:
-      - "example-books-backend"
-      - ".github/workflows/example-books-backend-build.yaml"
+      - "example-books-db"
+      - ".github/workflows/example-books-db-build.yaml"
 
 jobs:
   build-and-push-image:
@@ -36,7 +36,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:example-books-backend"
+          context: "{{defaultContext}}:example-books-db"
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
