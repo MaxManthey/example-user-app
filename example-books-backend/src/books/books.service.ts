@@ -1,8 +1,8 @@
-import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { Books } from "./books.entity";
-import { BooksDto } from "./books.request.dto";
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Books } from './books.entity';
+import { BooksDto } from './books.request.dto';
 
 @Injectable()
 export class BooksService {
@@ -12,9 +12,9 @@ export class BooksService {
   ) {}
 
   findWithLimit(limit: number): Promise<Books[]> {
-    return this.booksRepository.find({take: limit});
+    return this.booksRepository.find({ take: limit });
   }
-  
+
   findOne(id: string): Promise<Books> {
     return this.booksRepository.findOneBy({ id });
   }
@@ -30,5 +30,4 @@ export class BooksService {
   async addOne(booksDto: BooksDto): Promise<void> {
     await this.booksRepository.insert(booksDto);
   }
-
 }
