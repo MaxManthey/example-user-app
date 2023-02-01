@@ -3,7 +3,8 @@ name: Example Books DB Build
 on:
   push:
     branches:
-      - "main"
+      - "**"
+      # - "main"
     paths:
       - "example-books-db"
       - ".github/workflows/example-books-db-build.yaml"
@@ -36,7 +37,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:example-books-db"
+          context: "./example-books-db"
           push: true
           tags: ghcr.io/maxmanthey/${{ github.event.repository.name }}/example-books-db:${{ github.sha }},ghcr.io/maxmanthey/${{ github.event.repository.name }}/example-books-db:latest
           # tags: ${{ steps.meta.outputs.tags }}
