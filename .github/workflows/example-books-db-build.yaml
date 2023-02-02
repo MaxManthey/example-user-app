@@ -5,7 +5,7 @@ on:
     branches:
       - "main"
     paths:
-      - "example-books-db"
+      - "./example-books-db"
       - ".github/workflows/example-books-db-build.yaml"
 
 jobs:
