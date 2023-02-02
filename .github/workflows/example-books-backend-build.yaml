@@ -33,3 +33,4 @@ jobs:
           context: "./example-books-backend"
           push: true
           tags: ghcr.io/maxmanthey/${{ github.event.repository.name }}/example-books-backend:${{ github.sha }},ghcr.io/maxmanthey/${{ github.event.repository.name }}/example-books-backend:latest
+
